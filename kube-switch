@@ -1,0 +1,4 @@
+#!/bin/bash
+context=$(printf "$(kubectl config get-contexts -o=name)")
+selected=`echo $context | tr ' ' '\n' | fzf`
+kubectl config use-context $selected
